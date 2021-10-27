@@ -9,10 +9,13 @@ env:
     KEYID: "5072E1F5"
 
 phases:
+  install:
+      runtime-versions:
+        python: 3.6
   pre_build:
     commands:
       - echo "Before running tests"
-      - cd aws_cicd/
+      - sudo ls aws_cicd/
       - pip install -r requirements.txt
       # - echo "mysql-server mysql-server/root_password password ${DB_ROOT_PASSWORD}" |debconf-set-selections
       # - echo "mysql-server mysql-server/root_password_again password ${DB_ROOT_PASSWORD}" |debconf-set-selections
@@ -29,13 +32,13 @@ phases:
   post_build:
     commands:
       - echo Build completed on `date`
-artifacts:
-  files:
-    - '**/*'
-cache:
-  paths:
-    - '/root/.cache/pip/**/*'
-    - '/var/cache/apt/archives/**/*'
-    - '/var/lib/apt/lists/**/*'
-    - '/etc/apt/sources.list.d/mysql.list'
-    - '/etc/apt/sources.list'
+# artifacts:
+#   files:
+#     - '**/*'
+# cache:
+#   paths:
+#     - '/root/.cache/pip/**/*'
+#     - '/var/cache/apt/archives/**/*'
+#     - '/var/lib/apt/lists/**/*'
+#     - '/etc/apt/sources.list.d/mysql.list'
+#     - '/etc/apt/sources.list'
