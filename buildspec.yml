@@ -16,7 +16,7 @@ phases:
     commands:
       - echo "Before running tests"
       - cd aws_cicd/
-      - python3 -m pytest
+      - python manage.py test
       # - echo "mysql-server mysql-server/root_password password ${DB_ROOT_PASSWORD}" |debconf-set-selections
       # - echo "mysql-server mysql-server/root_password_again password ${DB_ROOT_PASSWORD}" |debconf-set-selections
       # - apt-key adv --keyserver hkp://keys.gnupg.net --recv-keys ${KEYID} || apt-key adv --keyserver keyserver.ubuntu.com --recv-keys ${KEYID}
